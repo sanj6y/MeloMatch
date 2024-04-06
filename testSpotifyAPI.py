@@ -11,7 +11,7 @@ def music_recommender(userPreferences):
         raw_data = pd.read_csv('genres_v2.csv', dtype={'song_name': 'str'})
         print(raw_data.shape)
         pd.set_option('display.max_columns', None)
-        raw_data.info()
+        raw_data.info() 
 
         # data cleaning --------------------------------------------------------------------------------------
         nulls = raw_data.isnull().sum()
