@@ -3,7 +3,8 @@ import React, { useEffect } from "react"
 const CLIENT_ID = '05345fe6718845e98a33b228f41eb512'
 const SPOTIFY_AUTH_ENDPT = 'https://accounts.spotify.com/authorize'
 const REDIRECT_URL = 'http://localhost:3000/main'
-const SCOPES = ['playlist-read-private', 'playlist-read-collaborative', 'user-library-read']
+const SCOPES = ['playlist-read-private', 'playlist-read-collaborative', 'user-library-read', 'playlist-modify-public',
+    'playlist-modify-private']
 const SCOPES_URL_PARAM = SCOPES.join("%20")
 
 function LogIn() {
