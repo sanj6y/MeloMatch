@@ -190,7 +190,7 @@ def flatten_dict_list(dict_list):
 
 from scipy.spatial.distance import cdist
 # Defining function for getting song recommendations
-def recommend_songs(song_list, spotify_data, n_songs=5): # Number of songs to be recommended - 5
+def recommend_songs(song_list, spotify_data, n_songs=6): # Number of songs to be recommended - 2
     metadata_cols = ['name', 'artists', 'album_name', 'release_year', 'artist_genres'] # Features to be returned with recommendations
     # Applying pre-processing functions
     song_dict = flatten_dict_list(song_list)
@@ -205,14 +205,14 @@ def recommend_songs(song_list, spotify_data, n_songs=5): # Number of songs to be
     rec_songs = spotify_data.iloc[index]
     rec_songs = rec_songs[~rec_songs['name'].isin(song_dict['name'])]
 
-    return rec_songs[metadata_cols].to_dict(orient='records')
+    return pd.DataFrame(rec_songs[metadata_cols].to_dict(orient='records'))
 
 
 
 ''' Inference '''
 # recommend based on Imagine by John Lennon
-# print(pd.DataFrame(recommend_songs([{'name': 'Imagine', 'artists': 'John Lennon'}],  df_scaled)).head())
+#print(pd.DataFrame(recommend_songs([{'name': 'Imagine', 'artists': 'John Lennon'}],  df_scaled)).head())
 # recommend based on Despacito
 print(pd.DataFrame(recommend_songs([{'name': 'Despacito', 'artists': 'Luis Fonsi'}],  df_scaled)).head())
 # recommend based on Gangnam Style
-# print(pd.DataFrame(recommend_songs([{'name': 'Gangnam Style', 'artists': 'PSY'}],  df_scaled)).head())
+#print(pd.DataFrame(recommend_songs([{'name': 'Gangnam Style', 'artists': 'PSY'}],  df_scaled)).head())
