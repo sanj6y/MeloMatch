@@ -205,7 +205,7 @@ def recommend_songs(song_list, spotify_data, n_songs=6): # Number of songs to be
     rec_songs = spotify_data.iloc[index]
     rec_songs = rec_songs[~rec_songs['name'].isin(song_dict['name'])]
 
-    return pd.DataFrame(rec_songs[metadata_cols].to_dict(orient='records'))
+    return rec_songs[metadata_cols].to_dict(orient='records')
 
 
 
@@ -213,6 +213,6 @@ def recommend_songs(song_list, spotify_data, n_songs=6): # Number of songs to be
 # recommend based on Imagine by John Lennon
 #print(pd.DataFrame(recommend_songs([{'name': 'N95', 'artists': 'Kendrick Lamar'}],  df_scaled)))
 # recommend based on Despacito
-print(pd.DataFrame(recommend_songs([{'name': 'Despacito', 'artists': 'Luis Fonsi'}],  df_scaled)).head())
+print(pd.DataFrame(recommend_songs([{'name': 'Pass N\' Touch', 'artists': 'Rayan Jr'}],  df_scaled)).head(10))
 # recommend based on Gangnam Style
 #print(pd.DataFrame(recommend_songs([{'name': 'Gangnam Style', 'artists': 'PSY'}],  df_scaled)).head())
