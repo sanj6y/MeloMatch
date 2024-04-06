@@ -211,7 +211,7 @@ def recommend_songs(song_list, spotify_data, n_songs=6): # Number of songs to be
 
 ''' Inference '''
 # recommend based on Imagine by John Lennon
-#print(pd.DataFrame(recommend_songs([{'name': 'Imagine', 'artists': 'John Lennon'}],  df_scaled)).head())
+#print(pd.DataFrame(recommend_songs([{'name': 'N95', 'artists': 'Kendrick Lamar'}],  df_scaled)))
 # recommend based on Despacito
 print(pd.DataFrame(recommend_songs([{'name': 'Despacito', 'artists': 'Luis Fonsi'}],  df_scaled)).head())
 # recommend based on Gangnam Style
