@@ -8,9 +8,8 @@ import './LoadingPage.css'
 function LoadingPage() {
   return (
     <div>
-      <NavBar/>
+      <NavBar/> 
       <div className="background-image1">
-
       </div>
     </div>
 

@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import LogIn from "./LogIn";
 import Main from "./Main";
+import LoadingPage from "./LoadingPage.jsx"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -13,9 +14,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<BrowserRouter>
 		<Routes>
+			<Route path="/" element={<LoadingPage />} />
 			<Route path="/main" element={<Main />} />
-			<Route path="/login" element={<LogIn />} />
-			<Route path="/" element={<LogIn />} />
+			<Route path ="/login" element={<LogIn/>}/>
 		</Routes>
 	</BrowserRouter>
 );
