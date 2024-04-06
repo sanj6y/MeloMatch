@@ -1,2 +1,2 @@
-# spotifyTinder
+# MeloMatch
 To be added
