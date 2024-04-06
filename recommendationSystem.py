@@ -115,12 +115,12 @@ df_scaled['release_year'] = df['release_year']
 ''' using spotipy '''
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-from kaggle_secrets import UserSecretsClient
-# Initializing Kaggle secrets
-user_secrets = UserSecretsClient()
-# Setting up Spotipy with Kaggle secrets
-sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=user_secrets.get_secret("Client ID"),
-                                                           client_secret=user_secrets.get_secret("Client secret")))
+# from kaggle_secrets import UserSecretsClient
+# # Initializing Kaggle secrets
+# user_secrets = UserSecretsClient()
+# # Setting up Spotipy with Kaggle secrets
+sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='05345fe6718845e98a33b228f41eb512',
+    client_secret='f15f734ac86e4151a7ee6e176e821300'))
 
 
 # Defining function for finding song on Spotify
@@ -211,8 +211,8 @@ def recommend_songs(song_list, spotify_data, n_songs=5): # Number of songs to be
 
 ''' Inference '''
 # recommend based on Imagine by John Lennon
-pd.DataFrame(recommend_songs([{'name': 'Imagine', 'artists': 'John Lennon'}],  df_scaled))
+# print(pd.DataFrame(recommend_songs([{'name': 'Imagine', 'artists': 'John Lennon'}],  df_scaled)).head())
 # recommend based on Despacito
-pd.DataFrame(recommend_songs([{'name': 'Despacito', 'artists': 'Luis Fonsi'}],  df_scaled))
+print(pd.DataFrame(recommend_songs([{'name': 'Despacito', 'artists': 'Luis Fonsi'}],  df_scaled)).head())
 # recommend based on Gangnam Style
-pd.DataFrame(recommend_songs([{'name': 'Gangnam Style', 'artists': 'PSY'}],  df_scaled))
+# print(pd.DataFrame(recommend_songs([{'name': 'Gangnam Style', 'artists': 'PSY'}],  df_scaled)).head())
