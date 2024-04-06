@@ -27,7 +27,9 @@ function Main() {
                     Authorization: "Bearer " + token,
                 }
             }
-        )
+        ).catch(e => {
+            console.error(e)
+        })
 
         const playlists = await res.json();
         console.log(playlists)
