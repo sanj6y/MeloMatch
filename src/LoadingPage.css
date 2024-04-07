@@ -1,8 +1,93 @@
+.landingHolder{
+   margin-top: 80px;
+}
+.navbarHolder{
+    height: 80px;
+    /* position: fixed; */
+}
 
 .background-image1{
-    height: 970px;
+    height: 890px;
     width: 1664px;
     background-image: url('./listen.jpeg');
     background-size: cover;
+    /* z-index: 0; */
+    position: relative;
+    justify-content: center;
+    /* padding-top: 300px; */
     /* background-repeat: no-repeat; */
+}
+
+.welcome-text{
+    margin-left: 50px;
+    padding-top: 250px;
+    text-align: left;
+}
+.background-image1 p{
+    display: table;
+    /* font-size: 60px; */
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 50px;
+    background-color: rgba(128, 128, 128, 0.431);
+}
+
+.dawg1{
+    color: white;
+    font-size: 60px;
+    font-weight: 600;
+}
+.dawg2{
+    color: rgb(245, 211, 174);
+
+    font-size: 60px;
+    padding-top: 75px;
+    font-weight: 600;
+}
+.getStarted-button {
+    margin-top: 45px;
+    padding: 35px;
+    box-shadow: 0px -30px 20px 1px rgba(229, 229, 231, 0.2);
+    padding-top: 30px;
+    width: 350px;
+    height: 85px;
+    color: rgb(19, 19, 19);
+    /* border-radius: 20px; */
+    background: rgb(241, 201, 159);
+    display: inline-block;
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    transition: color 0.3s;
+    font-size: 17px;
+    font-weight: 500;
+  }
+
+
+.getStarted-button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* border-radius: 20px; */
+    right: 0;
+    font-weight: 500;
+    bottom: 0;
+    z-index: -1;
+    background: rgb(95, 33, 33);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.3s ease-out;
+  }
+  
+.getStarted-button:hover {
+    color: white;
+}
+.getStarted-button:hover:before {
+    transform: scaleX(1);
+}
+
+
+button:hover{
+    cursor: pointer;
 }
