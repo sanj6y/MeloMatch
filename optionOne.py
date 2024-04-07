@@ -12,7 +12,7 @@ genres = ['pop', 'rock', 'hip-hop', 'r-n-b', 'country',
     'electronic', 'indie', 'k-pop', 'classical', 'jazz',
     'metal', 'reggae', 'latin', 'folk', 'romance']
 
-user_input = input("Pick one or more genres from the list (type EXACTLY as displayed, comma-separated): " + str(genres) + "\n").replace(" ", "")
+user_input = input("Pick one or more genres from the list (type EXACTLY as displayed, comma-separated): " + str(genres) + "\n")
 
 user_genre = [genre for genre in user_input.split(',') if genre in genres]
 print(user_genre)
