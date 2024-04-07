@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 function ChooseGenre() {
     let genres = ['pop', 'rock', 'hip-hop', 'r-n-b', 'country', 'electronic', 'indie', 'k-pop', 'classical', 'jazz', 'metal', 'reggae', 'latin', 'folk', 'romance']
-    let [genreList, setGenreList] = useState([])
+    const [genreList, setGenreList] = useState([])
 
     const updateButtonState = (index) => {
         let newArr = [];
