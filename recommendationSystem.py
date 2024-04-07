@@ -213,6 +213,10 @@ def recommend_songs(song_list, spotify_data, n_songs=6): # Number of songs to be
 # recommend based on Imagine by John Lennon
 #print(pd.DataFrame(recommend_songs([{'name': 'N95', 'artists': 'Kendrick Lamar'}],  df_scaled)))
 # recommend based on Despacito
-print(pd.DataFrame(recommend_songs([{'name': 'Pass N\' Touch', 'artists': 'Rayan Jr'}],  df_scaled)).head(10))
+# print(pd.DataFrame(recommend_songs([{'name': 'Pass N\' Touch', 'artists': 'Rayan Jr'}],  df_scaled)).head(10))
+# print(sp.recommendation_genre_seeds())
+d = sp.recommendations(seed_genres=['hip-hop'], limit=6)
+for i in d["tracks"][0]:
+    print(i["name"])
 # recommend based on Gangnam Style
 #print(pd.DataFrame(recommend_songs([{'name': 'Gangnam Style', 'artists': 'PSY'}],  df_scaled)).head())
