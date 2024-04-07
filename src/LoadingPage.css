@@ -54,12 +54,12 @@
     height: 85px;
     color: rgb(19, 19, 19);
     /* border-radius: 20px; */
-    background: rgb(241, 201, 159);
+    background: rgb(240, 212, 182);
     display: inline-block;
     transform: perspective(1px) translateZ(0);
     position: relative;
     transition: color 0.3s;
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 500;
   }
 
