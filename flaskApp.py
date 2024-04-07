@@ -10,6 +10,7 @@ app = Flask(__name__)
 CORS(app)
 
 playlist = []
+ids = []
 
 @app.route('/')
 def hello():
@@ -27,6 +28,7 @@ def get_string():
 def song_rec():
     # Logic to receive the string from the frontend
     global playlist
+    global ids
     id = request.get_data()
     ids = []
     d = sp.recommendations(seed_tracks=[str(id)], limit=2)
@@ -36,13 +38,22 @@ def song_rec():
         playlist.append(song["id"])
         ids.append(song['id'])
     
-    return jsonify(ids)
+
+@app.route('/song_get', methods=['GET'])
+@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
+def song_get():
+    # Logic to receive the string from the frontend
+    global playlist
+    global ids
+
+    return ids
 
 @app.route('/genre', methods=['POST'])
 @cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
 def genre():
     # Logic to receive the string from the frontend
     global playlist
+    global ids
     genres = request.get_data()
     ids = []
     d = sp.recommendations(seed_genre=[genres], limit=2)

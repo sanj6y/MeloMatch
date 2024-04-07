@@ -5,6 +5,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='05345fe6718845e98a33b228f41eb512',
     client_secret='f15f734ac86e4151a7ee6e176e821300'))
 
+
 playlist = []
 
 for i in range(5):
