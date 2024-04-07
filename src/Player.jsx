@@ -8,6 +8,7 @@ function Player({ token, uri }) {
             uris={[`spotify:track:${uri}`]}
             layout='compact'
             hideAttribution={true}
+            hideCoverArt={true}
         />
     )
 }
