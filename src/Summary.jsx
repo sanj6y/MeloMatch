@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import { Spotify } from 'react-bootstrap-icons';
+import NavBar from './NavBar';
+import './Summary.css'
 
 function Summary() {
 
     const [songs, setSongs] = useState([])
     const [token, setToken] = useState("");
     const [userId, setUserId] = useState("")
+    const [playlist, setPlaylist] = useState('')
+    const nameRef = useRef('')
 
     const handleCreatePlaylist = async () => {
         if (userId == '') {
@@ -13,8 +18,8 @@ function Summary() {
         const req = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
             method: "POST",
             body: JSON.stringify({
-                name: 'billy bob joe',
-                description: 'created using api',
+                name: nameRef.current.value,
+                description: 'Powered by MeloMatch 🎶',
                 public: false,
             }),
             headers: {
@@ -43,6 +48,17 @@ function Summary() {
             })
         }).catch(e => console.log(e))
         )
+
+        const playlistReq = await fetch(`https://api.spotify.com/v1/playlists/${data.id} `, {
+            headers: {
+                Authorization: 'Bearer ' + token,
+                "Content-Type": 'application/json'
+            }
+        })
+
+        const playlistData = await playlistReq.json();
+        setPlaylist(data.id)
+
 
 
     }
@@ -81,7 +97,31 @@ function Summary() {
     }, [])
 
     return (
-        <button onClick={handleCreatePlaylist}>Export to Spotify</button>
+        <div>
+            <NavBar />
+            <div className='summary-holder'>
+                <div className="inputs-holder">
+                    {playlist === "" ? <input type="text" placeholder='Enter a playlist name' className='playlist-name-input' ref={nameRef} /> : <></>}
+                    <br />
+                    {playlist === "" ? <button onClick={handleCreatePlaylist} className="playlist-submit-button"><span><Spotify className='spotify-icon' size={50} />Export to Spotify</span></button> : <></>}
+                </div>
+
+
+            </div>
+            {playlist !== "" ? <div className='embed-holder'>
+                <iframe
+                    src={`https://open.spotify.com/embed/playlist/${playlist}`}
+                    width="700"
+                    height="450"
+                    frameborder="0"
+                    allowtransparency="true"
+                    allow="encrypted-media"
+                    title="Spotify Playlist"
+                    className='embed'
+                ></iframe>
+            </div> : <></>}
+
+        </div>
     )
 }
 

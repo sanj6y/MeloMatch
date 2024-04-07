@@ -1,0 +1,65 @@
+.summary-holder {
+	width: 100vw;
+	height: calc (100vh - 80px);
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	display: flex;
+}
+
+.inputs-holder {
+	margin-top: 200px;
+	overflow-y: hidden;
+}
+
+.playlist-name-input {
+	border-bottom: 1px solid grey;
+	text-align: center;
+	font-size: 30px;
+	width: 30vw;
+}
+
+.playlist-name-input:focus {
+	outline-width: 0;
+}
+
+.playlist-submit-button {
+	background-image: linear-gradient(
+		to right,
+		#f6d365 0%,
+		#fda085 51%,
+		#f6d365 100%
+	);
+	flex: 1 1 auto;
+
+	text-align: center;
+	transition: 0.5s;
+	background-size: 200% auto;
+
+	font-size: 25px;
+
+	padding: 20px 40px;
+	margin-top: 30px;
+
+	box-shadow: 0 0 20px #eee;
+	border-radius: 10px;
+}
+
+.playlist-submit-button:hover {
+	background-position: right center; /* change the direction of the change here */
+}
+
+.spotify-icon {
+	display: inline;
+	padding-right: 5%;
+}
+
+.embed-holder {
+	align-items: center;
+	margin: auto auto auto auto;
+	overflow-y: hidden;
+}
+
+.embed {
+	margin: auto auto auto auto;
+}
