@@ -5,13 +5,46 @@ from spotipy.oauth2 import SpotifyClientCredentials
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='05345fe6718845e98a33b228f41eb512',
     client_secret='f15f734ac86e4151a7ee6e176e821300'))
 
+playlist = []
 
 
-song_results = sp.search(q='abacab&type=track', limit=5) # Searching for song data using song and artist name
-for i in range(5):
-    results = song_results['tracks']['items'][i]
-    track_id = results['id']
-    audio_features = sp.audio_features(track_id)[0] # Getting song audio features
+genres = ['pop', 'rock', 'hip-hop', 'r-n-b', 'country',
+    'electronic', 'indie', 'k-pop', 'classical', 'jazz',
+    'metal', 'reggae', 'latin', 'folk', 'romance']
 
-    url = 'https://open.spotify.com/track/{}'.format(track_id)
-    print(url)
+user_genre = input("Pick a genre from the list (type EXACTLY as displayed): " + str(genres) + "\n")
+
+d = sp.recommendations(seed_genres=[str(user_genre)], limit=2)
+ids = []
+for i in d["tracks"]:
+    print(i["name"])
+    ids.append(i["id"])
+
+print("\n")
+user_choice = input("Pick which of these two songs you like more. Type 1 for the first song, 2 for the second: ")
+
+playlist.append(ids[int(user_choice) - 1])
+
+for i in range(4):
+    d = sp.recommendations(seed_tracks=[str(playlist[i])], limit=2)
+    ids = []
+    for song in d["tracks"]:
+        print(song["name"])
+        ids.append(song["id"])
+
+    print("\n")
+    user_choice = input("Pick which of these two songs you like more. Type 1 for the first song, 2 for the second: ")
+
+    playlist.append(ids[int(user_choice) - 1])
+
+
+print('\n\n\n')
+
+print('Congratulations! Here are the songs of your playlist: ')
+for i in playlist:
+    print(sp.track(i)["name"])
+
+# d = sp.recommendations(seed_tracks=["0c6xIDDpzE81m2q797ordA"], limit=6)
+
+# for i in d["tracks"]:
+#     print(i["name"])
