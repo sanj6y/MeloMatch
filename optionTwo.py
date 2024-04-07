@@ -7,42 +7,26 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='05345fe671
 
 playlist = []
 
+for i in range(5):
+    name = input('Enter the song name: ')
+    artists = input('Enter the artist: ')
+    song_results = sp.search(q= 'track: {} artist: {}'.format(name, artists), limit=1)
+    results = song_results['tracks']['items'][0]
+    playlist.append(results['id'])
 
-
-user_input = input("Pick one or more genres from the list (type EXACTLY as displayed, comma-separated): " + str(genres) + "\n")
-
-user_genre = [genre for genre in user_input.split(',') if genre in genres]
-print(user_genre)
-
-
-d = sp.recommendations(seed_genres=user_genre, limit=2)
+d = sp.recommendations(seed_tracks=playlist, limit=20)
 ids = []
-for i in d["tracks"]:
-    print(i["name"])
-    ids.append(i["id"])
+for song in d["tracks"]:
+    print(song["name"])
+    ids.append(song["id"])
 
-print("\n")
-user_choice = input("Pick which of these two songs you like more. Type 1 for the first song, 2 for the second: ")
-
-playlist.append(ids[int(user_choice) - 1])
-
-for i in range(19):
-    d = sp.recommendations(seed_tracks=[str(playlist[i])], limit=2)
-    ids = []
-    for song in d["tracks"]:
-        print(song["name"])
-        ids.append(song["id"])
-
-    print("\n")
-    user_choice = input("Pick which of these two songs you like more. Type 1 for the first song, 2 for the second: ")
-
-    playlist.append(ids[int(user_choice) - 1])
+    
 
 
 print('\n\n\n')
 
 print('Congratulations! Here are the songs of your playlist: ')
-for i in playlist:
+for i in ids:
     print(sp.track(i)["name"])
 
 # d = sp.recommendations(seed_tracks=["0c6xIDDpzE81m2q797ordA"], limit=6)
