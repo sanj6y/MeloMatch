@@ -6,7 +6,8 @@ import reportWebVitals from "./reportWebVitals";
 
 import LogIn from "./LogIn";
 import Main from "./Main";
-import LoadingPage from "./LoadingPage.jsx"
+import LoadingPage from "./LoadingPage.jsx";
+import ChooseGenre from "./ChooseGenres.jsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -16,7 +17,8 @@ root.render(
 		<Routes>
 			<Route path="/" element={<LoadingPage />} />
 			<Route path="/main" element={<Main />} />
-			<Route path ="/login" element={<LogIn/>}/>
+			<Route path="/login" element={<LogIn />} />
+			<Route path="/choose-genre" element={<ChooseGenre />} />
 		</Routes>
 	</BrowserRouter>
 );
