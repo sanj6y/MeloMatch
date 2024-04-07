@@ -64,10 +64,10 @@ function Main() {
                 getReturnedParams(window.location.hash);
 
             localStorage.clear();
-
             localStorage.setItem("accessToken", access_token);
             localStorage.setItem("tokenType", token_type);
             localStorage.setItem("expiresIn", expires_in);
+
 
 
         }
@@ -82,7 +82,7 @@ function Main() {
 
                 const res = await fetch('https://api.spotify.com/v1/me/', {
                     headers: {
-                        Authorization: "Bearer " + token,
+                        Authorization: "Bearer " + localStorage.getItem("accessToken"),
                     }
                 })
                 const userInfo = await res.json();
@@ -98,6 +98,7 @@ function Main() {
     return (
         <div style={{ width: 300 }}>
             <Player token={token} uri={songURI} />
+            <button onClick={handleCreatePlaylist}>create playlist</button>
         </div>
     )
 }
