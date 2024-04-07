@@ -25,18 +25,24 @@ function Summary() {
 
         const data = await req.json();
         console.log(data)
-        let playlist_id = data.id;
 
-        songs.map(async song => {
-            await (fetch(`https://api.spotify.com/v1/playlists/${playlist_id}/tracks`, {
-                method: 'POST',
-                headers: {
-                    Authorization: 'Bearer ' + token,
-                    "Content-Type": 'application/json'
-                }
+        let uriArr = songs
+        uriArr = uriArr.map(id => "spotify:track:" + id);
+        console.log(uriArr)
+
+
+        await (fetch(`https://api.spotify.com/v1/playlists/${data.id}/tracks`, {
+            method: 'POST',
+            headers: {
+                Authorization: 'Bearer ' + token,
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify({
+                "uris": uriArr,
+                "positition": 0,
             })
-            )
-        })
+        }).catch(e => console.log(e))
+        )
 
 
     }
@@ -75,7 +81,7 @@ function Summary() {
     }, [])
 
     return (
-        <button onClick={handleCreatePlaylist}>create playlist</button>
+        <button onClick={handleCreatePlaylist}>Export to Spotify</button>
     )
 }
 
