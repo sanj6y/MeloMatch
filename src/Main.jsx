@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import Player from "./Player";
 
 const PLAYLIST_ENDPT = 'https://api.spotify.com/v1/me/playlists'
 
@@ -7,6 +8,7 @@ function Main() {
     const [token, setToken] = useState("");
     const [data, setData] = useState({})
     const [userId, setUserId] = useState("")
+    const [songURI, setURI] = useState("7GX5flRQZVHRAGd6B4TmDO")
 
     const getReturnedParams = (hash) => {
         const stringAfterHash = hash.substring(1);
@@ -94,20 +96,8 @@ function Main() {
     }, [])
 
     return (
-        <div>
-            <p>Main page!! woo</p>
-            <button onClick={handleGetPlaylists}>get playlists </button>
-            <h3>playlist names</h3>
-            <div>
-                {
-                    Object.keys(data).map((key, index) => (
-                        <p key={index}>{data[key]['name']}</p>
-                    ))
-                }
-            </div>
-
-            <button onClick={handleCreatePlaylist}>create playlist</button>
-
+        <div style={{ width: 300 }}>
+            <Player token={token} uri={songURI} />
         </div>
     )
 }
