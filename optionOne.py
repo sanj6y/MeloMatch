@@ -2,12 +2,7 @@ import spotipy
 from collections import defaultdict
 import pandas as pd, numpy as np
 from spotipy.oauth2 import SpotifyClientCredentials
-<<<<<<< Updated upstream
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='05345fe6718845e98a33b228f41eb512', client_secret='f15f734ac86e4151a7ee6e176e821300'))
-=======
-sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='116657a4e279491b9e7a42c56f09db1c',
-    client_secret='0d2cb83374a5458395be9302d62b6aff'))
->>>>>>> Stashed changes
 
 playlist = []
 
