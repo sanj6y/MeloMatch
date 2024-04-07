@@ -7,7 +7,7 @@ function NavBar() {
 
     const CLIENT_ID = '05345fe6718845e98a33b228f41eb512'
     const SPOTIFY_AUTH_ENDPT = 'https://accounts.spotify.com/authorize'
-    const REDIRECT_URL = 'http://localhost:3000/main'
+    const REDIRECT_URL = 'http://localhost:3000/dashboard'
     const SCOPES = ['playlist-modify-public', 'playlist-modify-private', 'streaming', 'user-read-email', 'user-read-private', 'user-library-read', 'user-library-modify', 'user-read-playback-state', 'user-modify-playback-state']
 
     const SCOPES_URL_PARAM = SCOPES.join("%20")

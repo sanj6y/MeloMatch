@@ -1,3 +1,7 @@
+*{
+    scroll-behavior: smooth;
+}
+
 .landingHolder{
    margin-top: 80px;
 }
@@ -86,8 +90,127 @@
 .getStarted-button:hover:before {
     transform: scaleX(1);
 }
-
+ 
 
 button:hover{
     cursor: pointer;
+}
+
+
+.aboutus{
+    background: rgb(255, 255, 255);
+    height:400px;
+}
+.services-s{
+    background: wheat;
+    height:600px;
+}
+
+.contact-s{
+    background: rgb(149, 135, 109);
+    height:300px;
+}
+
+.bedder-s{
+    background: rgb(255, 255, 255);
+    height:100px;
+}
+
+.dash-title{
+    height: 420px;
+    width: 100%;
+    background-image: url('./sunset.png');
+    background-size: cover;
+    /* z-index: 0; */
+    position: relative;
+    justify-content: center;
+}
+
+.dash-menu{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.dash-menu-item1{
+    border: none;
+   width: 500px;
+   height: 325px;
+   background: rgb(255, 255, 255);
+   margin-right: 40px;
+   border-radius: 15px;
+   /* color: rgb(158, 158, 158); */
+   box-shadow: 0px 2px 40px 3px rgb(216, 214, 214);
+}
+
+.item1-title{
+    background: linear-gradient(#edd99d, #e1a26b);
+    padding-bottom: 40px;
+    padding-top: 40px;
+    font-size: 28px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+    color: rgb(107, 73, 7);
+    margin-bottom: 10px;
+}
+
+.item1-descrip{
+    text-align: left;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    height:200px;
+    color: gray;
+    max-width: 490px;
+}
+
+.dash-menu-item2{
+    border: none;
+    margin-left: 40px;
+    width: 500px;
+    height: 325px;
+    background: rgb(255, 255, 255);
+    margin-right: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 40px 3px rgb(216, 214, 214);
+ }
+
+ .item2-title{
+    background: linear-gradient(#f8d1ae, #f9aa88);
+    padding-bottom: 40px;
+    padding-top: 40px;
+    font-size: 28px;
+    text-align: center;
+    border-radius: 15px 15px 0px 0px;
+    color: #89330f;
+    margin-bottom: 10px;
+}
+
+.item2-descrip{
+    text-align: left;
+    height:200px;
+    color: gray;
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 490px;
+}
+
+.button-holder{
+    margin-top: 30px;
+    text-align: center;
+}
+.button-holder button{
+
+    background: rgb(236, 208, 122);
+    height: 50px;
+    width: 200px;
+    color:rgb(118, 91, 33);
+    border-radius:15px; 
+    /* box-shadow: 0px 2px 40px 3px rgb(231, 216, 165); */
+}
+
+.button-holder button:hover{
+    background: rgb(255, 210, 74);
 }

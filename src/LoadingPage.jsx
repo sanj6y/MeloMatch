@@ -14,7 +14,7 @@ function LoadingPage() {
 
     const CLIENT_ID = '05345fe6718845e98a33b228f41eb512'
     const SPOTIFY_AUTH_ENDPT = 'https://accounts.spotify.com/authorize'
-    const REDIRECT_URL = 'http://localhost:3000/main'
+    const REDIRECT_URL = 'http://localhost:3000/dashboard'
     //   const SCOPES = ['playlist-read-private', 'playlist-read-collaborative', 'user-library-read', 'playlist-modify-public',
     //       'playlist-modify-private']
     const SCOPES = ['playlist-modify-public', 'playlist-modify-private', 'streaming', 'user-read-email', 'user-read-private', 'user-library-read', 'user-library-modify', 'user-read-playback-state', 'user-modify-playback-state']
@@ -38,7 +38,33 @@ function LoadingPage() {
                         Get Started
                     </button>
                 </div>
+            </div>
+            <div id="about" className="aboutus">
+              <div className="about-holder">
 
+              </div>
+                <div>
+                  MeloMatch is a platform designed to quickly and easily create playlists of songs uniquely tailored to your tastes.
+                </div>
+                <div>
+                 
+                </div>
+            
+            </div>
+            <div id="services" className="services-s">
+                <p>
+                  MeloMatch is a platform designed to quickly and easily create playlists of songs uniquely tailored to your tastes.
+                </p>
+            </div>
+            <div id="contact" className="contact-s">
+                <p>
+                  MeloMatch is a platform designed to quickly and easily create playlists of songs uniquely tailored to your tastes.
+                </p>
+            </div>
+            <div className="bedder-s">
+                <p>
+                  MeloMatch is a platform designed to quickly and easily create playlists of songs uniquely tailored to your tastes.
+                </p>
             </div>
         </div>
 

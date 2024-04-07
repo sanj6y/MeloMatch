@@ -9,6 +9,7 @@ import Main from "./Main";
 import LoadingPage from "./LoadingPage.jsx"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from "./Dashboard.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,6 +18,7 @@ root.render(
 			<Route path="/" element={<LoadingPage />} />
 			<Route path="/main" element={<Main />} />
 			<Route path ="/login" element={<LogIn/>}/>
+			<Route path ="/dashboard" element={<Dashboard/>}/>
 		</Routes>
 	</BrowserRouter>
 );
