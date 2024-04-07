@@ -26,7 +26,6 @@ function LoadingPage() {
         window.location = `${SPOTIFY_AUTH_ENDPT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
     }
 
-
     return (
         <div className="landingHolder">
             <NavBar />

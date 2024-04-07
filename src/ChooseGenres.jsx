@@ -11,7 +11,12 @@ function ChooseGenre() {
         let newArr = [];
         if (genreList.includes(index)) {
             genreList.map(value => {
-                if (value != index) newArr.push(value)
+                if (value != index){
+                    newArr.push(value);
+                    let item = document.getElementsByClassName("genres-grid-item")[genres.indexOf(index)];
+                    item.style.border = "0.5px solid rgb(163, 132, 47)";
+                }
+
             })
 
         }
@@ -19,6 +24,10 @@ function ChooseGenre() {
         else {
             newArr = genreList;
             newArr.push(index);
+            console.log(index);
+            let items = document.getElementsByClassName("genres-grid-item")[genres.indexOf(index)];
+            items.style.border = "2px solid rgb(113, 80, 23)";
+
         }
         setGenreList(newArr);
         console.log(newArr);
@@ -49,10 +58,10 @@ function ChooseGenre() {
                 <h1 >Choose Genres</h1>
             </div>
             <div className="genres-grid">
-                {genres.map((value, index) => <button className="genres-grid-item" style={{ display: 'block' }} onClick={() => updateButtonState(value)}>{value}</button>)}
+                {genres.map((value, index) => <button key ={index} className="genres-grid-item" style={{ display: 'block' }} onClick={() => updateButtonState(value)}>{value}</button>)}
             </div>
             <div className="genres-submit-button">
-                <button onClick={handleGenreSubmit}>Submit!</button>
+                <button onClick={handleGenreSubmit}>Next</button>
             </div>
         </div>
     )

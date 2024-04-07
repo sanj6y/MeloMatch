@@ -103,7 +103,7 @@ function Dashboard(){
     const submitOption = () => {
         console.log("sdfs");
         if (option=="one")
-            window.location.href = "/genres";
+            window.location.href = "/choose-genre";
         else if(option =="two")
             window.location.href = "/search";
     }
