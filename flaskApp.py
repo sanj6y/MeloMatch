@@ -28,16 +28,15 @@ def song_rec():
     # Logic to receive the string from the frontend
     global playlist
     id = request.get_data()
-    
+    ids = []
     d = sp.recommendations(seed_tracks=[str(id)], limit=2)
 
     for song in d["tracks"]:
         print(song["name"])
         playlist.append(song["id"])
-
-    # Logic to process the string
+        ids.append(song['id'])
     
-    return jsonify({'message': 'String received and processed successfully'})
+    return jsonify(ids)
 
 
 
