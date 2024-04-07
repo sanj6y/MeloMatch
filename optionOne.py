@@ -2,8 +2,8 @@ import spotipy
 from collections import defaultdict
 import pandas as pd, numpy as np
 from spotipy.oauth2 import SpotifyClientCredentials
-sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='05345fe6718845e98a33b228f41eb512',
-    client_secret='f15f734ac86e4151a7ee6e176e821300'))
+sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='116657a4e279491b9e7a42c56f09db1c',
+    client_secret='0d2cb83374a5458395be9302d62b6aff'))
 
 playlist = []
 
@@ -14,7 +14,7 @@ genres = ['pop', 'rock', 'hip-hop', 'r-n-b', 'country',
 
 user_genre = input("Pick a genre from the list (type EXACTLY as displayed): " + str(genres) + "\n")
 
-d = sp.recommendations(seed_genres=[str(user_genre)], limit=2)
+d = sp.recommendations(seed_genres=['pop', 'rock'], limit=2)
 ids = []
 for i in d["tracks"]:
     print(i["name"])

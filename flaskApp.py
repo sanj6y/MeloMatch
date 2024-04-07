@@ -2,8 +2,9 @@ from flask import Flask, request, jsonify, Response
 from flask_cors import CORS, cross_origin
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='05345fe6718845e98a33b228f41eb512',
-    client_secret='f15f734ac86e4151a7ee6e176e821300'))
+import json
+sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id='116657a4e279491b9e7a42c56f09db1c',
+    client_secret='0d2cb83374a5458395be9302d62b6aff'))
 
 app = Flask(__name__)
 # app.config['CORS_HEADERS'] = 'Content-Type'
@@ -29,14 +30,17 @@ def song_rec():
     # Logic to receive the string from the frontend
     global playlist
     global ids
-    id = request.get_data()
+    song_id = str(request.get_data(), encoding='utf-8')[1:-1]
+    playlist.append(song_id)
+    print(song_id)
     ids = []
-    d = sp.recommendations(seed_tracks=[str(id)], limit=2)
+    d = sp.recommendations(seed_tracks=[str(song_id)], limit=2)
 
     for song in d["tracks"]:
         print(song["name"])
-        playlist.append(song["id"])
         ids.append(song['id'])
+
+    return ids
     
 
 @app.route('/song_get', methods=['GET'])
@@ -48,21 +52,33 @@ def song_get():
 
     return ids
 
+@app.route('/playlist_get', methods=['GET'])
+@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
+def playlist_get():
+    # Logic to receive the string from the frontend
+    global playlist
+    global ids
+
+    return playlist
+
 @app.route('/genre', methods=['POST'])
 @cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
 def genre():
     # Logic to receive the string from the frontend
     global playlist
     global ids
-    genres = request.get_data()
+    genres = json.loads(request.get_data())
+    print(genres)
+    print(type(genres))
     ids = []
-    d = sp.recommendations(seed_genre=[genres], limit=2)
+    d = sp.recommendations(seed_genres=genres, limit=2)
+    print("got here")
 
     for song in d["tracks"]:
         print(song["name"])
         #playlist.append(song["id"])
         ids.append(song['id'])
-    
+    print("reached here")
     return jsonify(ids)
 
 
