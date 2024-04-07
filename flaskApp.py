@@ -55,7 +55,38 @@ def song_rec():
         #playlist.append(song["id"])
         ids.append(song['id'])
     return jsonify(ids)
+
+@app.route('/generate', methods=['POST'])
+@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
+def generate():
+    # Logic to receive the string from the frontend
+    global playlist
+    global ids
+    id1 = json.loads(request.get_data())
+    ids = []
+    print(id1)
+    #playlist.append(id1)
+    #d = sp.recommendations(seed_tracks=[str(id)], limit=2)
+    user_headers = {
+    "Authorization": "Bearer " + 'BQCQzwKuIB1sXvhUh19uNPXFQuPv02X8Hx7ojMg7ncPHOdHhRd60UpWcJqbxcMrdZqSkgJpHPN3dZkuqrKjpKtxJAgRVDU6TimBNYlcz6mLYr36bv4WbFuv6W04WfC5e9IPonSjGPY1sYZKNAw7EJGOpNJ7e_GbHsC7LzNX4ybBK4WZ9Vg1_T5St_A',
+    "Content-Type": "application/json"
+    }
+
+    user_params = {
+        "limit": 3600
+    }
+
     
+    
+    d = requests.get("https://api.spotify.com/v1/recommendations?limit=20&seed_tracks={}".format(id1), params=user_params, headers=user_headers)
+    print(d.json())
+
+    for song in d.json()["tracks"]:
+        print(song["name"])
+        playlist.append(song["id"])
+        ids.append(song['id'])
+    return jsonify(ids)
+
 
 @app.route('/song_get', methods=['GET'])
 @cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
