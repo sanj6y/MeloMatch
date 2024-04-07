@@ -8,23 +8,31 @@ function ChooseSongs() {
     const [imageL, setImageL] = useState('')
     const [imageR, setImageR] = useState('')
     const [selectedSong, setSelectedSong] = useState(1)
+    const [count, setCount] = useState(1);
 
     const handleSongsSubmit = async () => {
-        console.log("pressed")
-        const req = await fetch('http://127.0.0.1:5000/song_rec', {
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-                "Content-Type": 'application/json'
-            },
-            body: JSON.stringify(songURIS[selectedSong]),
-        }).catch(err => { console.log(err); return })
+        if (count <= 20) {
+            console.log("pressed")
+            const req = await fetch('http://127.0.0.1:5000/song_rec', {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": 'application/json'
+                },
+                body: JSON.stringify(songURIS[selectedSong]),
+            }).catch(err => { console.log(err); return })
 
-        const get_ids = await fetch('http://127.0.0.1:5000/song_get')
-        const res = await get_ids.json();
-        console.log(res)
+            const get_ids = await fetch('http://127.0.0.1:5000/song_get')
+            const res = await get_ids.json();
+            console.log(res)
 
-        setSongURIS(res);
+            setSongURIS(res);
+            setCount(count + 1);
+        }
+
+        else {
+            window.location.href = '/summary';
+        }
 
     }
 

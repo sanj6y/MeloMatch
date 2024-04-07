@@ -9,6 +9,7 @@ import Main from "./Main";
 import LoadingPage from "./LoadingPage.jsx";
 import ChooseGenre from "./ChooseGenres.jsx";
 import ChooseSongs from "./ChooseSongs.jsx";
+import Summary from "./Summary.jsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -21,6 +22,7 @@ root.render(
 			<Route path="/login" element={<LogIn />} />
 			<Route path="/choose-genre" element={<ChooseGenre />} />
 			<Route path="/choose-songs" element={<ChooseSongs />} />
+			<Route path="/summary" element={<Summary />} />
 		</Routes>
 	</BrowserRouter>
 );
