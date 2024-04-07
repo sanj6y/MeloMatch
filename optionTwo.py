@@ -14,6 +14,7 @@ for i in range(5):
     song_results = sp.search(q= 'track: {} artist: {}'.format(name, artists), limit=1)
     results = song_results['tracks']['items'][0]
     playlist.append(results['id'])
+    print(playlist)
 
 d = sp.recommendations(seed_tracks=playlist, limit=20)
 ids = []
@@ -21,7 +22,6 @@ for song in d["tracks"]:
     print(song["name"])
     ids.append(song["id"])
 
-    
 
 
 print('\n\n\n')
