@@ -6,7 +6,10 @@ import reportWebVitals from "./reportWebVitals";
 
 import LogIn from "./LogIn";
 import Main from "./Main";
-import LoadingPage from "./LoadingPage.jsx"
+import LoadingPage from "./LoadingPage.jsx";
+import ChooseGenre from "./ChooseGenres.jsx";
+import ChooseSongs from "./ChooseSongs.jsx";
+import Summary from "./Summary.jsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./Dashboard.jsx";
@@ -19,6 +22,9 @@ root.render(
 			<Route path="/main" element={<Main />} />
 			<Route path ="/login" element={<LogIn/>}/>
 			<Route path ="/dashboard" element={<Dashboard/>}/>
+			<Route path="/choose-genre" element={<ChooseGenre />} />
+			<Route path="/choose-songs" element={<ChooseSongs />} />
+			<Route path="/summary" element={<Summary />} />
 		</Routes>
 	</BrowserRouter>
 );
