@@ -12,13 +12,9 @@ genres = ['pop', 'rock', 'hip-hop', 'r-n-b', 'country',
     'electronic', 'indie', 'k-pop', 'classical', 'jazz',
     'metal', 'reggae', 'latin', 'folk', 'romance']
 
-user_input = input("Pick one or more genres from the list (type EXACTLY as displayed, comma-separated): " + str(genres) + "\n")
+user_genre = input("Pick a genre from the list (type EXACTLY as displayed): " + str(genres) + "\n")
 
-user_genre = [genre for genre in user_input.split(',') if genre in genres]
-print(user_genre)
-
-
-d = sp.recommendations(seed_genres=user_genre, limit=2)
+d = sp.recommendations(seed_genres=[str(user_genre)], limit=2)
 ids = []
 for i in d["tracks"]:
     print(i["name"])
@@ -29,7 +25,7 @@ user_choice = input("Pick which of these two songs you like more. Type 1 for the
 
 playlist.append(ids[int(user_choice) - 1])
 
-for i in range(19):
+for i in range(4):
     d = sp.recommendations(seed_tracks=[str(playlist[i])], limit=2)
     ids = []
     for song in d["tracks"]:

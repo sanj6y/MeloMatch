@@ -38,6 +38,22 @@ def song_rec():
     
     return jsonify(ids)
 
+@app.route('/genre', methods=['POST'])
+@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
+def genre():
+    # Logic to receive the string from the frontend
+    global playlist
+    genres = request.get_data()
+    ids = []
+    d = sp.recommendations(seed_genre=[genres], limit=2)
+
+    for song in d["tracks"]:
+        print(song["name"])
+        #playlist.append(song["id"])
+        ids.append(song['id'])
+    
+    return jsonify(ids)
+
 
 
 if __name__ == '__main__':
